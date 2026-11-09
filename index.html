@@ -4,8 +4,7 @@
 <meta name="robots" content="noindex,nofollow">
 <title>Aussie IT Services Australia – Staff Roster</title>
 <style>
-:root{box-sizing:border-box;--bg:#f6f7fb;--card:#fff;--tx:#1b2333;--mut:#667085;--ac:#1f4fd8;--acx:#fff;--bd:#c9d0e0;--warn:#b42318;--hd:#1f3864}
-@media (prefers-color-scheme:dark){:root{--bg:#10141f;--card:#1a2030;--tx:#e8ecf5;--mut:#9aa4b8;--ac:#6f94ff;--acx:#0b1020;--bd:#2c3550;--warn:#ff8a80;--hd:#2c3f73}}
+:root{box-sizing:border-box;--bg:#fff;--card:#fff;--tx:#1b2333;--mut:#6b7488;--ac:#1f4fd8;--acx:#fff;--bd:#e3e7ef;--warn:#b42318;--hd:#f1f4fa}
 *,*:before,*:after{box-sizing:inherit}
 body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
 header{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--bd);padding:10px 14px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
@@ -18,18 +17,20 @@ main{max-width:1100px;margin:0 auto;padding:14px}
 .mut,.note{color:var(--mut);font-size:13px}.empty{color:var(--mut);font-style:italic}
 .scroll{overflow-x:auto}
 .title{margin:0 0 8px;font-size:18px}
-.wk{margin-bottom:14px;min-width:760px}
+.wk{margin-bottom:8px;min-width:760px}
 .wkh{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--mut);margin-bottom:3px}
 .row{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border:1px solid var(--bd);border-radius:8px;overflow:hidden;background:var(--card)}
-.c{border-left:1px solid var(--bd);min-height:96px}.c:first-child{border-left:0}
-.c .dn{background:var(--hd);color:#fff;text-align:center;font-size:12px;padding:3px 2px}
-.c .dn small{opacity:.75;display:block;font-size:10px}
+.c{border-left:1px solid var(--bd);min-height:70px}.c:first-child{border-left:0}
+.c .dn{background:var(--hd);color:var(--tx);text-align:center;font-size:12px;font-weight:600;padding:2px}
+.c .dn small{color:var(--mut);font-weight:400;display:block;font-size:10px}
 .c.out .dn{opacity:.45}
-.c .hr{text-align:center;font-size:12px;font-weight:600;padding:3px 2px;border-bottom:1px solid var(--bd);background:var(--bg)}
+.c .hr{text-align:center;font-size:11px;color:var(--mut);padding:2px;border-bottom:1px solid var(--bd)}
 .c .nm{padding:4px;display:flex;flex-direction:column;gap:3px}
 .chip{border-left:4px solid;border-radius:4px;padding:1px 5px;font-size:12px;color:#1b2333}
+.legend{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.sw{width:26px;height:26px;border-radius:6px;border:2px solid;cursor:pointer;padding:0}
 .c.ed{cursor:pointer}.c.ed:hover{outline:2px solid var(--ac);outline-offset:-2px}
-.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin:12px 0}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:10px 14px;margin:8px 0}
 textarea,input[type=text],input[type=password],input[type=url]{font:inherit;padding:7px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx);width:100%}
 textarea{min-height:90px}
 label{display:flex;flex-direction:column;font-size:12px;color:var(--mut);gap:2px}
@@ -38,7 +39,7 @@ label{display:flex;flex-direction:column;font-size:12px;color:var(--mut);gap:2px
 .dbox{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px;max-width:440px;width:100%;max-height:90vh;overflow:auto}.dbox input{margin-bottom:8px}
 #login{max-width:340px;margin:12vh auto;padding:0 16px}
 @page{size:landscape;margin:10mm}
-@media print{body *{visibility:hidden}.pr,.pr *{visibility:visible}.pr{position:absolute;left:0;top:0;width:100%;--card:#fff;--bd:#999;--mut:#444;--tx:#000;--bg:#eee;--hd:#1f3864}.pr,.pr *{-webkit-print-color-adjust:exact;print-color-adjust:exact}.scroll{overflow:visible}.wk{min-width:0;break-inside:avoid}.c.ed:hover{outline:0}.wkh .btn{display:none}body{background:#fff;color:#000}}
+@media print{body *{visibility:hidden}.pr,.pr *{visibility:visible}.pr{position:absolute;left:0;top:0;width:100%;--card:#fff;--bd:#999;--mut:#444;--tx:#000;--bg:#eee;--hd:#f1f4fa}.pr,.pr *{-webkit-print-color-adjust:exact;print-color-adjust:exact}.scroll{overflow:visible}.wk{min-width:0;break-inside:avoid}.c.ed:hover{outline:0}.wkh .btn{display:none}body{background:#fff;color:#000}}
 </style></head><body>
 <div id="login" hidden><div class="card"><h2 style="margin-top:0">Aussie IT Services Australia</h2><p class="mut">Staff roster – staff only</p>
 <form id="lf"><label>Password<input type="password" id="pw" autocomplete="current-password" required></label><p id="le" class="note" style="color:var(--warn)"></p><button class="btn pri" style="width:100%">Sign in</button></form></div></div>
@@ -48,7 +49,7 @@ label{display:flex;flex-direction:column;font-size:12px;color:var(--mut);gap:2px
 <a id="notesBtn" class="btn pri" target="_blank" rel="noopener">Submit shift notes</a>
 <button class="btn" id="staffBtn" hidden>Staff</button><button class="btn" id="formBtn" hidden>Set form link</button>
 <button class="btn" onclick="print()">Print roster PDF</button><button class="btn" id="out">Sign out</button></div></header>
-<main><div class="bar"><button class="btn" id="pv">←</button><b id="mlab"></b><button class="btn" id="nx">→</button><button class="btn" id="td">This month</button></div>
+<main><div class="bar"><button class="btn" id="pv">←</button><b id="mlab"></b><button class="btn" id="nx">→</button><button class="btn" id="td">This week</button></div>
 <div id="view"></div></main></div>
 <div id="dlg" hidden></div>
 <script>
@@ -62,7 +63,10 @@ const mon=d=>{const x=new Date(d);x.setHours(0,0,0,0);x.setDate(x.getDate()-((x.
 const add=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x};
 const hue=id=>{let h=0;for(const c of String(id))h=(h*31+c.charCodeAt(0))%360;return h};
 const nm=id=>(S.staff.find(s=>s.id===id)||{}).name;
-const base=()=>{const d=new Date();return new Date(d.getFullYear(),d.getMonth()+mo,1)};
+const PAL=[["#ffd6d6","#d64545"],["#ffe3c2","#e08a1e"],["#fff3b0","#c9a400"],["#d4f1c5","#4c9a2a"],["#c5efe6","#1f9d8a"],["#cfe6ff","#2b7bd6"],["#dcd3ff","#6a4fd1"],["#f7d1f0","#c13fae"],["#e6e6e6","#6b6b6b"],["#ffd0e1","#d6457f"]];
+const cidx=id=>{const s=S.staff.find(x=>x.id===id)||{};return Number.isInteger(s.c)?s.c%PAL.length:hue(id)%PAL.length};
+const chip=id=>{const [bg,bd]=PAL[cidx(id)];return `<span class="chip" style="background:${bg};border-color:${bd}">${esc(nm(id))}</span>`};
+const firstDay=()=>add(mon(new Date()),mo*28);
 
 function dlg(html){const d=$("#dlg");d.innerHTML=`<div class="dbox">${html}</div>`;d.hidden=false;return d}
 const close=()=>{$("#dlg").hidden=true};
@@ -81,18 +85,19 @@ function renderNotes(){const a=$("#notesBtn");
 
 function render(){
   S.staff.sort((a,b)=>a.name.localeCompare(b.name));renderNotes();
-  const b=base(),y=b.getFullYear(),m=b.getMonth(),key=y+"-"+String(m+1).padStart(2,"0");
-  $("#mlab").textContent=b.toLocaleDateString("en-AU",{month:"long",year:"numeric"});
-  let w=mon(b);const last=new Date(y,m+1,0);let h=`<div class="pr"><h2 class="title">Aussie IT Services Australia – Staff Roster · ${b.toLocaleDateString("en-AU",{month:"long",year:"numeric"}).toUpperCase()}</h2>`;
-  while(w<=last){
-    const ws=iso(w);
-    h+=`<div class="scroll"><div class="wk"><div class="wkh"><span>Week of ${w.toLocaleDateString("en-AU",{day:"numeric",month:"short"})}</span>${admin?`<button class="btn sm" data-copy="${ws}">Copy from previous week</button>`:""}</div><div class="row">`;
-    for(let i=0;i<7;i++){const d=add(w,i),k=iso(d),day=S.days[k]||{},out=d.getMonth()!==m;
+  const st=firstDay(),en=add(st,27),key=iso(st);
+  const lab=st.toLocaleDateString("en-AU",{day:"numeric",month:"short"})+" – "+en.toLocaleDateString("en-AU",{day:"numeric",month:"short",year:"numeric"});
+  $("#mlab").textContent=lab;
+  let h=`<div class="pr"><h2 class="title">Aussie IT Services Australia – Staff Roster · ${lab}</h2><div class="legend">${S.staff.map(s=>chip(s.id)).join("")}</div>`;
+  for(let w=0;w<4;w++){
+    const ws=add(st,w*7);
+    h+=`<div class="scroll"><div class="wk"><div class="wkh"><span>Week of ${ws.toLocaleDateString("en-AU",{day:"numeric",month:"short"})}</span>${admin?`<button class="btn sm" data-copy="${iso(ws)}">Copy from previous week</button>`:""}</div><div class="row">`;
+    for(let i=0;i<7;i++){const d=add(ws,i),k=iso(d),day=S.days[k]||{};
       const ids=(day.staff||[]).filter(id=>nm(id));
-      h+=`<div class="c ${out?"out":""} ${admin?"ed":""}" ${admin?`data-day="${k}"`:""}><div class="dn">${d.toLocaleDateString("en-AU",{weekday:"short"})}<small>${d.toLocaleDateString("en-AU",{day:"2-digit",month:"short"})}</small></div><div class="hr">${esc(day.hours??S.hours)}</div><div class="nm">${ids.map(id=>`<span class="chip" style="background:hsl(${hue(id)} 70% 86%);border-color:hsl(${hue(id)} 60% 38%)">${esc(nm(id))}</span>`).join("")}</div></div>`}
-    h+=`</div></div></div>`;w=add(w,7)}
+      h+=`<div class="c ${admin?"ed":""}" ${admin?`data-day="${k}"`:""}><div class="dn">${d.toLocaleDateString("en-AU",{weekday:"short"})}<small>${d.toLocaleDateString("en-AU",{day:"2-digit",month:"short"})}</small></div><div class="hr">${esc(day.hours??S.hours)}</div><div class="nm">${ids.map(chip).join("")}</div></div>`}
+    h+=`</div></div></div>`}
   const nt=S.notes[key]||"";
-  h+=`<div class="card"><b>NOTES</b>${admin?`<textarea id="nt" placeholder="Notes for this month">${esc(nt)}</textarea><div style="margin-top:6px"><button class="btn sm pri" id="ns">Save notes</button></div>`:`<p style="white-space:pre-wrap;margin:6px 0 0">${esc(nt)||`<span class="empty">No notes</span>`}</p>`}</div></div>`;
+  h+=`<div class="card"><b>NOTES</b>${admin?`<textarea id="nt" placeholder="Notes for these 4 weeks" style="min-height:60px;margin-top:6px">${esc(nt)}</textarea><div style="margin-top:6px"><button class="btn sm pri" id="ns">Save notes</button></div>`:`<p style="white-space:pre-wrap;margin:6px 0 0">${esc(nt)||`<span class="empty">No notes</span>`}</p>`}</div></div>`;
   $("#view").innerHTML=h;
   document.querySelectorAll("[data-day]").forEach(c=>c.onclick=()=>editDay(c.dataset.day));
   document.querySelectorAll("[data-copy]").forEach(b2=>b2.onclick=()=>copyWeek(b2.dataset.copy));
@@ -102,15 +107,16 @@ function editDay(k){
   const day=S.days[k]||{},sel=new Set(day.staff||[]);
   if(!S.staff.length){note("Add your staff first with the Staff button.");return}
   const d=new Date(k+"T00:00");
-  dlg(`<b>${d.toLocaleDateString("en-AU",{weekday:"long",day:"numeric",month:"long"})}</b><label style="margin-top:8px">Hours<input type="text" id="eh" value="${esc(day.hours??S.hours)}" placeholder="${DEF}"></label><p class="note">Type "CLOSED" for a day with no program.</p>${S.staff.map(s=>`<label class="chk"><input type="checkbox" value="${s.id}" ${sel.has(s.id)?"checked":""}> ${esc(s.name)}</label>`).join("")}<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:10px"><button class="btn" id="dn">Cancel</button><button class="btn pri" id="dy">Save</button></div>`);
+  dlg(`<b>${d.toLocaleDateString("en-AU",{weekday:"long",day:"numeric",month:"long"})}</b><label style="margin-top:8px">Hours<input type="text" id="eh" value="${esc(day.hours??S.hours)}" placeholder="${DEF}"></label><p class="note">Type "CLOSED" for a day with no program.</p>${S.staff.map(s=>`<label class="chk"><input type="checkbox" value="${s.id}" ${sel.has(s.id)?"checked":""}> ${chip(s.id)}</label>`).join("")}<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:10px"><button class="btn" id="dn">Cancel</button><button class="btn pri" id="dy">Save</button></div>`);
   $("#dn").onclick=close;$("#dy").onclick=()=>{const ids=[...document.querySelectorAll(".dbox input[type=checkbox]:checked")].map(x=>x.value);const hr=$("#eh").value.trim()||S.hours;close();mutate(()=>{S.days[k]={hours:hr,staff:ids}})}}
 function copyWeek(ws){
   const prev=add(new Date(ws+"T00:00"),-7);
   ask("Copy last week's staff and hours into this week? It replaces anything already entered this week.",()=>mutate(()=>{for(let i=0;i<7;i++){const src=S.days[iso(add(prev,i))];const k=iso(add(new Date(ws+"T00:00"),i));if(src)S.days[k]={hours:src.hours,staff:[...(src.staff||[])]};else delete S.days[k]}}))}
 function staffDlg(){
-  dlg(`<b>Staff</b><div style="margin:8px 0">${S.staff.map(s=>`<div style="display:flex;justify-content:space-between;align-items:center;padding:3px 0"><span>${esc(s.name)}</span><button class="btn sm del" data-r="${s.id}">Remove</button></div>`).join("")||`<span class="empty">No staff yet</span>`}</div><form id="af" style="display:flex;gap:6px"><input type="text" id="an" placeholder="Full name" required style="margin:0"><button class="btn pri">Add</button></form><div style="text-align:right;margin-top:10px"><button class="btn" id="dn">Close</button></div>`);
+  dlg(`<b>Staff</b><p class="note">Tap a colour square to change that person's colour.</p><div style="margin:8px 0">${S.staff.map(s=>{const [bg,bd]=PAL[cidx(s.id)];return `<div style="display:flex;justify-content:space-between;align-items:center;padding:3px 0;gap:8px"><button class="sw" data-c="${s.id}" style="background:${bg};border-color:${bd}" title="Change colour"></button><span style="flex:1">${esc(s.name)}</span><button class="btn sm del" data-r="${s.id}">Remove</button></div>`}).join("")||`<span class="empty">No staff yet</span>`}</div><form id="af" style="display:flex;gap:6px"><input type="text" id="an" placeholder="Full name" required style="margin:0"><button class="btn pri">Add</button></form><div style="text-align:right;margin-top:10px"><button class="btn" id="dn">Close</button></div>`);
   $("#dn").onclick=close;
-  $("#af").onsubmit=e=>{e.preventDefault();const n=$("#an").value.trim();if(n){mutate(()=>{S.staff.push({id:uid(),name:n})});staffDlg()}};
+  $("#af").onsubmit=e=>{e.preventDefault();const n=$("#an").value.trim();if(n){const used=new Set(S.staff.map(x=>cidx(x.id)));let c=PAL.findIndex((_,i)=>!used.has(i));if(c<0)c=S.staff.length%PAL.length;mutate(()=>{S.staff.push({id:uid(),name:n,c})});staffDlg()}};
+  document.querySelectorAll("[data-c]").forEach(b=>b.onclick=()=>{mutate(()=>{const p=S.staff.find(x=>x.id===b.dataset.c);p.c=(cidx(p.id)+1)%PAL.length});staffDlg()});
   document.querySelectorAll("[data-r]").forEach(b=>b.onclick=()=>ask("Remove this employee? They'll disappear from every day they were rostered.",()=>{mutate(()=>{S.staff=S.staff.filter(s=>s.id!==b.dataset.r)});staffDlg()}))}
 function formLink(){
   dlg(`<b>Google Form link</b><p class="note">Paste the shift notes form link. Leave blank and Save to remove it.</p><input type="url" id="fu" placeholder="https://forms.gle/..." value="${esc(S.formUrl)}"><p class="note" id="fe" style="color:var(--warn)"></p><div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn" id="dn">Cancel</button><button class="btn pri" id="dy">Save</button></div>`);
