@@ -1,35 +1,27 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
 <title>Aussie IT Services Australia – Support Roster</title>
 <style>
-:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f6f7fb;--card:#fff;--tx:#1b2333;--mut:#667085;--ac:#1f4fd8;--acx:#fff;--bd:#dde2ee;--warn:#b42318}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10141f;--card:#1a2030;--tx:#e8ecf5;--mut:#9aa4b8;--ac:#6f94ff;--acx:#0b1020;--bd:#2c3550;--warn:#ff8a80}}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
+:root{box-sizing:border-box;--bg:#f6f7fb;--card:#fff;--tx:#1b2333;--mut:#667085;--ac:#1f4fd8;--acx:#fff;--bd:#dde2ee;--warn:#b42318}
+@media (prefers-color-scheme:dark){:root{--bg:#10141f;--card:#1a2030;--tx:#e8ecf5;--mut:#9aa4b8;--ac:#6f94ff;--acx:#0b1020;--bd:#2c3550;--warn:#ff8a80}}
 *,*:before,*:after{box-sizing:inherit}
 body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);border-bottom:1px solid var(--bd);padding:10px 14px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+header{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--bd);padding:10px 14px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
 header h1{font-size:17px;margin:0}
 .btn{border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:8px;padding:8px 12px;font:inherit;cursor:pointer;text-decoration:none;display:inline-block}
 .btn.pri{background:var(--ac);color:var(--acx);border-color:var(--ac);font-weight:600}
-.btn.sm{padding:3px 8px;font-size:13px}
-.btn.del{color:var(--warn)}
-main{max-width:1000px;margin:0 auto;padding:14px}
-nav{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
-nav .btn.on{background:var(--tx);color:var(--bg)}
+.btn.sm{padding:3px 8px;font-size:13px}.btn.del{color:var(--warn)}
+main{max-width:1100px;margin:0 auto;padding:14px}
+nav{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}nav .btn.on{background:var(--tx);color:var(--bg)}
 .card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin-bottom:12px}
-.day h3{margin:0 0 6px;font-size:15px}
-.shift{display:grid;grid-template-columns:110px 1fr auto;gap:4px 10px;padding:7px 0;border-top:1px solid var(--bd)}
-.shift:first-of-type{border-top:0}
-.mut{color:var(--mut);font-size:13px}
-.empty{color:var(--mut);font-style:italic}
-.wk{display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
-.wk b{min-width:170px;text-align:center}
+.mut,.note{color:var(--mut);font-size:13px}.empty{color:var(--mut);font-style:italic}
+.wk{display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap}.wk b{min-width:170px;text-align:center}
 form.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:8px}
 label{display:flex;flex-direction:column;font-size:12px;color:var(--mut);gap:2px}
 input,select{font:inherit;padding:7px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx);width:100%}
 .tag{display:inline-block;background:var(--bg);border:1px solid var(--bd);border-radius:20px;padding:1px 9px;font-size:12px;margin:2px 4px 2px 0}
-.note{font-size:12px;color:var(--mut)}
 .caltitle{margin:0 0 8px;font-size:17px}
 .legend{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
 .legend span{border-left:5px solid;border-radius:5px;padding:1px 8px;font-size:12px;color:#1b2333}
@@ -41,26 +33,33 @@ input,select{font:inherit;padding:7px;border:1px solid var(--bd);border-radius:8
 .dcb{position:relative;height:calc(var(--rh)*10);background:repeating-linear-gradient(to bottom,transparent 0,transparent calc(var(--rh) - 1px),var(--bd) calc(var(--rh) - 1px),var(--bd) var(--rh))}
 .blk{position:absolute;border-radius:6px;padding:2px 4px;font-size:11px;line-height:1.2;overflow:hidden;color:#1b2333;border-left:4px solid;box-shadow:0 0 0 1px rgba(0,0,0,.08)}
 .blk[data-del]{cursor:pointer}
+.dt{width:100%;border-collapse:collapse;margin-top:14px;font-size:12px}.dt th,.dt td{border:1px solid var(--bd);padding:4px 6px;text-align:left}.dt th{background:var(--bg)}.dt tr{page-break-inside:avoid}
+#dlg{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:20;padding:16px}#dlg[hidden]{display:none}
+.dbox{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px;max-width:440px;width:100%}.dbox input{margin-bottom:10px}
+#login{max-width:340px;margin:12vh auto;padding:0 16px}
 @page{size:landscape;margin:10mm}
 @media print{body *{visibility:hidden}.calwrap,.calwrap *{visibility:visible}.calwrap{position:absolute;left:0;top:0;width:100%;--card:#fff;--bd:#bbb;--mut:#444;--tx:#000}.calwrap,.calwrap *{-webkit-print-color-adjust:exact;print-color-adjust:exact}.scroll{overflow:visible}.cal{min-width:0}body{background:#fff;color:#000}}
-@media (max-width:560px){.shift{grid-template-columns:1fr}}
 </style></head><body>
-<header>
-  <h1>Aussie IT Services Australia – Support Roster</h1>
+<div id="login" hidden>
+  <div class="card"><h2 style="margin-top:0">Aussie IT Services Australia</h2><p class="mut">Support roster – staff only</p>
+  <form id="lf"><label>Password<input type="password" id="pw" autocomplete="current-password" required></label><p id="le" class="note" style="color:var(--warn)"></p><button class="btn pri" style="width:100%">Sign in</button></form></div>
+</div>
+<div id="app" hidden>
+<header><h1>Aussie IT Services Australia – Support Roster</h1>
   <div style="display:flex;gap:8px;flex-wrap:wrap">
     <a id="notesBtn" class="btn pri" target="_blank" rel="noopener">Submit shift notes</a>
-    <button class="btn adm" id="formBtn" hidden>Set form link</button>
+    <button class="btn" id="formBtn" hidden>Set form link</button>
     <button class="btn" onclick="printRoster()">Print roster PDF</button>
-  </div>
-</header>
-<main>
-  <nav id="tabs"></nav>
-  <div id="view"><p class="empty">Loading…</p></div>
-</main>
+    <button class="btn" id="out">Sign out</button>
+  </div></header>
+<main><nav id="tabs"></nav><div id="view"></div></main>
+</div>
+<div id="dlg" hidden></div>
 <script>
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-let db=null,admin=false,tab="roster",off=0,S={staff:[],participants:[],shifts:[],formUrl:""};
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+let pass="",admin=false,tab="roster",off=0,S={staff:[],participants:[],shifts:[],formUrl:""};
 
 const iso=d=>d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
 function weekStart(o){const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-((d.getDay()+6)%7)+o*7);return d}
@@ -68,45 +67,30 @@ const fmt=(d,o)=>d.toLocaleDateString("en-AU",o);
 const t12=t=>{if(!t)return"";const[h,m]=t.split(":").map(Number);return((h+11)%12+1)+":"+String(m).padStart(2,"0")+(h<12?" am":" pm")};
 const nm=(l,id,k="name")=>(l.find(x=>x.id===id)||{})[k]||"(removed)";
 const lines=p=>(p.billing||"").split(/[,\n]/).map(s=>s.trim()).filter(Boolean);
-
+const hue=id=>{let h=0;for(const c of String(id))h=(h*31+c.charCodeAt(0))%360;return h};
 function weekShifts(){const a=iso(weekStart(off)),b=iso(weekStart(off+1));return S.shifts.filter(s=>s.date>=a&&s.date<b).sort((x,y)=>(x.date+x.start).localeCompare(y.date+y.start))}
 
-function renderNotes(){
-  const a=$("#notesBtn");
-  if(S.formUrl){a.href=S.formUrl;a.onclick=null}
-  else{a.removeAttribute("href");a.onclick=e=>{e.preventDefault();alert(admin?"Use ‘Set form link’ to add your Google Form link.":"The shift notes form link has not been set yet.")}}
-  $("#formBtn").hidden=!admin;
-}
-function renderTabs(){
-  $("#tabs").innerHTML=[["roster","Weekly roster"],["participants","Participants"],["staff","Staff"]]
-   .map(([k,l])=>`<button class="btn ${tab===k?"on":""}" data-t="${k}">${l}</button>`).join("");
-  document.querySelectorAll("#tabs .btn").forEach(b=>b.onclick=()=>{tab=b.dataset.t;render()});
-}
+/* dialogs (no browser pop-ups) */
+function ask(msg,yes){const d=$("#dlg");d.innerHTML=`<div class="dbox"><p>${esc(msg)}</p><div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn" id="dn">Cancel</button><button class="btn pri" id="dy">OK</button></div></div>`;d.hidden=false;$("#dn").onclick=()=>{d.hidden=true};$("#dy").onclick=()=>{d.hidden=true;yes()}}
+function note(msg){const d=$("#dlg");d.innerHTML=`<div class="dbox"><p>${esc(msg)}</p><div style="text-align:right"><button class="btn pri" id="dn">OK</button></div></div>`;d.hidden=false;$("#dn").onclick=()=>{d.hidden=true}}
+function formLink(){const d=$("#dlg");d.innerHTML=`<div class="dbox"><b>Google Form link</b><p class="note">Paste the shift notes form link. Leave blank and Save to remove it.</p><input id="fu" placeholder="https://forms.gle/..." value="${esc(S.formUrl)}"><div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn" id="dn">Cancel</button><button class="btn pri" id="dy">Save</button></div><p class="note" id="fe" style="color:var(--warn)"></p></div>`;d.hidden=false;$("#dn").onclick=()=>{d.hidden=true};
+  $("#dy").onclick=()=>{const u=$("#fu").value.trim();if(u&&!/^https:\/\//.test(u)){$("#fe").textContent="The link must start with https://";return}S.formUrl=u;save().then(ok=>{if(ok){d.hidden=true;renderNotes()}})}}
 
-function rosterView(){
-  const ws=weekStart(off),we=weekStart(off+1);we.setDate(we.getDate()-1);
-  const all=weekShifts();let h=`<div class="wk"><button class="btn" id="pv">←</button><b>${fmt(ws,{day:"numeric",month:"short"})} – ${fmt(we,{day:"numeric",month:"short",year:"numeric"})}</b><button class="btn" id="nx">→</button><button class="btn" id="th">This week</button></div>`;
-  if(admin){
-    const ready=S.staff.length&&S.participants.length;
-    h+=`<details class="card adm"><summary><b>Add a shift</b></summary>${ready?`<form class="grid" id="sf">
-    <label>Date<input type="date" name="date" required value="${iso(ws)}"></label>
-    <label>Worker<select name="worker" required>${S.staff.map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join("")}</select></label>
-    <label>Participant<select name="participant" id="sp" required>${S.participants.map(p=>`<option value="${p.id}">${esc(p.name)}</option>`).join("")}</select></label>
-    <label>Start<input type="time" name="start" required></label><label>End<input type="time" name="end" required></label>
-    <label>Session #<input type="number" name="session" min="1"></label>
-    <label>Billing line<select name="billing" id="sb"></select></label>
-    <label>Location<input name="location" placeholder="e.g. Loganholme office"></label>
-    <button class="btn pri" style="align-self:end">Add shift</button></form>`:`<p class="empty">Add at least one staff member and one participant first.</p>`}</details>`;
-  }
-  h+=calendar(ws,all);
-  for(let i=0;i<0;i++){
-    const d=new Date(ws);d.setDate(d.getDate()+i);const k=iso(d),day=all.filter(s=>s.date===k);
-    h+=`<div class="card day"><h3>${fmt(d,{weekday:"long",day:"numeric",month:"short"})}</h3>`+(day.length?day.map(s=>`<div class="shift"><div><b>${t12(s.start)} – ${t12(s.end)}</b></div><div>${esc(nm(S.staff,s.worker))} <span class="mut">with</span> ${esc(nm(S.participants,s.participant))}${s.session?` <span class="tag">Session ${esc(s.session)}</span>`:""}<div class="mut">${esc(s.location||"")}${s.billing?` · ${esc(s.billing)}`:""}</div></div>${admin?`<button class="btn sm del adm" data-del="${s.id}">Remove</button>`:"<span></span>"}</div>`).join(""):`<span class="empty">No shifts</span>`)+`</div>`;
-  }
-  return h;
-}
-function hue(id){let h=0;for(const c of String(id))h=(h*31+c.charCodeAt(0))%360;return h}
-function printRoster(){if(tab!=="roster"){tab="roster";render()}setTimeout(()=>print(),60)}
+/* server */
+async function api(method,body){
+  const r=await fetch("/api/data",{method,headers:{"x-pass":pass,"content-type":"application/json"},body:body?JSON.stringify(body):undefined});
+  const j=await r.json().catch(()=>({}));if(!r.ok)throw Object.assign(new Error(j.error||"Error"),{status:r.status});return j}
+async function save(){try{await api("POST",{data:S});return true}catch(e){note("Could not save: "+e.message+". Reload the page and try again.");return false}}
+async function mutate(fn){fn();render();const ok=await save();if(!ok)await load()}
+async function load(){const j=await api("GET");S=Object.assign({staff:[],participants:[],shifts:[],formUrl:""},j.data);admin=j.role==="admin";render()}
+
+function renderNotes(){const a=$("#notesBtn");
+  if(S.formUrl){a.href=S.formUrl;a.onclick=null}
+  else{a.removeAttribute("href");a.onclick=e=>{e.preventDefault();note(admin?"Use the Set form link button to add your Google Form link.":"The shift notes form link has not been set yet.")}}
+  $("#formBtn").hidden=!admin}
+function renderTabs(){$("#tabs").innerHTML=[["roster","Weekly roster"],["participants","Participants"],["staff","Staff"]].map(([k,l])=>`<button class="btn ${tab===k?"on":""}" data-t="${k}">${l}</button>`).join("");
+  document.querySelectorAll("#tabs .btn").forEach(b=>b.onclick=()=>{tab=b.dataset.t;render()})}
+
 function calendar(ws,all){
   const H0=8,H1=18,RH=52,mins=t=>{const[h,m]=t.split(":").map(Number);return h*60+m};
   const days=[...Array(7)].map((_,i)=>{const d=new Date(ws);d.setDate(d.getDate()+i);return d});
@@ -114,79 +98,84 @@ function calendar(ws,all){
   let h=`<div class="calwrap"><h2 class="caltitle">Aussie IT Services Australia – Support Roster · ${fmt(days[0],{day:"numeric",month:"short"})} – ${fmt(days[6],{day:"numeric",month:"short",year:"numeric"})}</h2>`;
   h+=`<div class="legend">${used.map(w=>`<span style="background:hsl(${hue(w)} 70% 85%);border-color:hsl(${hue(w)} 60% 38%)">${esc(nm(S.staff,w))}</span>`).join("")||`<span class="mut" style="border:0">No shifts this week</span>`}</div>`;
   h+=`<div class="scroll"><div class="cal" style="--rh:${RH}px"><div><div class="ch"></div>${[...Array(H1-H0)].map((_,i)=>`<div class="hr">${t12((H0+i)+":00").replace(":00","")}</div>`).join("")}</div>`;
-  days.forEach(d=>{
-    const k=iso(d);
+  days.forEach(d=>{const k=iso(d);
     const ds=all.filter(s=>s.date===k).map(s=>({s,a:Math.max(mins(s.start),H0*60),b:Math.min(mins(s.end),H1*60)})).filter(x=>x.b>x.a).sort((x,y)=>x.a-y.a||x.b-y.b);
     let cl=[],ends=[],cend=0;const flush=()=>{cl.forEach(x=>x.n=ends.length);cl=[];ends=[];cend=0};
     ds.forEach(x=>{if(cl.length&&x.a>=cend)flush();let l=ends.findIndex(e=>e<=x.a);if(l<0){l=ends.length;ends.push(0)}ends[l]=x.b;x.l=l;cl.push(x);cend=Math.max(cend,x.b)});flush();
     h+=`<div class="dc"><div class="ch">${fmt(d,{weekday:"short",day:"numeric",month:"short"})}</div><div class="dcb">`+ds.map(x=>{const s=x.s,hu=hue(s.worker);
-      return `<div class="blk" ${admin?`data-del="${s.id}" title="Click to remove"`:""} style="top:${(x.a-H0*60)/60*RH}px;height:${(x.b-x.a)/60*RH-1}px;left:${x.l/x.n*100}%;width:calc(${100/x.n}% - 1px);background:hsl(${hu} 70% 85%);border-color:hsl(${hu} 60% 38%)"><b>${esc(nm(S.staff,s.worker))}</b><br>${esc(nm(S.participants,s.participant))}${s.session?` · S${esc(s.session)}`:""}<br>${t12(s.start)}–${t12(s.end)}</div>`}).join("")+`</div></div>`;
-  });
-  return h+`</div></div></div>`;
-}
+      return `<div class="blk" ${admin?`data-del="${s.id}" title="Click to remove"`:""} style="top:${(x.a-H0*60)/60*RH}px;height:${(x.b-x.a)/60*RH-1}px;left:${x.l/x.n*100}%;width:calc(${100/x.n}% - 1px);background:hsl(${hu} 70% 85%);border-color:hsl(${hu} 60% 38%)"><b>${esc(nm(S.staff,s.worker))}</b><br>${esc(nm(S.participants,s.participant))}${s.session?` · S${esc(s.session)}`:""}<br>${t12(s.start)}–${t12(s.end)}</div>`}).join("")+`</div></div>`});
+  h+=`</div></div>`;
+  const rows=all.map(s=>{const p=S.participants.find(x=>x.id===s.participant)||{};return `<tr><td>${fmt(new Date(s.date+"T00:00"),{weekday:"short",day:"numeric",month:"short"})}</td><td>${t12(s.start)}–${t12(s.end)}</td><td>${esc(nm(S.staff,s.worker))}</td><td>${esc(p.name||"(removed)")}</td><td>${esc(p.ndis||"—")}</td><td>${esc(s.support||"—")}</td><td>${esc(s.billing||"—")}</td><td>${s.session?esc(s.session):"—"}</td></tr>`}).join("");
+  return h+(rows?`<table class="dt"><thead><tr><th>Date</th><th>Time</th><th>Staff</th><th>Participant</th><th>NDIS number</th><th>Category</th><th>Billing line</th><th>Session #</th></tr></thead><tbody>${rows}</tbody></table>`:"")+`</div>`}
+function printRoster(){if(tab!=="roster"){tab="roster";render()}setTimeout(()=>print(),80)}
+
+function rosterView(){
+  const ws=weekStart(off),we=weekStart(off+1);we.setDate(we.getDate()-1);
+  let h=`<div class="wk"><button class="btn" id="pv">←</button><b>${fmt(ws,{day:"numeric",month:"short"})} – ${fmt(we,{day:"numeric",month:"short",year:"numeric"})}</b><button class="btn" id="nx">→</button><button class="btn" id="th">This week</button></div>`;
+  if(admin){const ready=S.staff.length&&S.participants.length;
+    h+=`<details class="card"><summary><b>Add a shift</b></summary>${ready?`<form class="grid" id="sf">
+    <label>Date<input type="date" name="date" required value="${iso(ws)}"></label>
+    <label>Worker<select name="worker" required>${S.staff.map(s=>`<option value="${s.id}">${esc(s.name)}</option>`).join("")}</select></label>
+    <label>Participant<select name="participant" id="sp" required>${S.participants.map(p=>`<option value="${p.id}">${esc(p.name)}</option>`).join("")}</select></label>
+    <label>Start<input type="time" name="start" required></label><label>End<input type="time" name="end" required></label>
+    <label>Session #<input type="number" name="session" min="1"></label>
+    <label>Category<select name="support"><option>Core</option><option>Capacity Building</option></select></label>
+    <label>Billing line<select name="billing" id="sb"></select></label>
+    <label>Location<input name="location" placeholder="e.g. Loganholme office"></label>
+    <button class="btn pri" style="align-self:end">Add shift</button></form>`:`<p class="empty">Add at least one staff member and one participant first.</p>`}</details>`}
+  return h+calendar(ws,weekShifts())}
 function bindRoster(){
   $("#pv").onclick=()=>{off--;render()};$("#nx").onclick=()=>{off++;render()};$("#th").onclick=()=>{off=0;render()};
-  document.querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>{if(confirm("Remove this shift? Mark changes in the sheet if already issued."))db.doc("shifts/"+b.dataset.del).delete()});
+  document.querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>ask("Remove this shift? Record the change in your roster notes if it was already issued.",()=>mutate(()=>{S.shifts=S.shifts.filter(s=>s.id!==b.dataset.del)})));
   const sf=$("#sf");if(!sf)return;
   const fill=()=>{const p=S.participants.find(x=>x.id===$("#sp").value);$("#sb").innerHTML=`<option value="">—</option>`+lines(p||{}).map(l=>`<option>${esc(l)}</option>`).join("")};
   $("#sp").onchange=fill;fill();
   sf.onsubmit=e=>{e.preventDefault();const f=Object.fromEntries(new FormData(sf));
-    if(f.end<=f.start&&!confirm("End time is not after start time. Add anyway?"))return;
-    db.collection("shifts").add({date:f.date,worker:f.worker,participant:f.participant,start:f.start,end:f.end,session:f.session,billing:f.billing,location:f.location}).then(()=>{sf.reset()})};
-}
+    if(f.end<=f.start){note("End time must be after the start time.");return}
+    mutate(()=>{S.shifts.push({id:uid(),date:f.date,worker:f.worker,participant:f.participant,start:f.start,end:f.end,session:f.session,support:f.support,billing:f.billing,location:f.location})})}}
 
 function participantsView(){
   const all=weekShifts();const lab=fmt(weekStart(off),{day:"numeric",month:"short"});
-  let h=admin?`<details class="card adm"><summary><b>Add a participant</b></summary><form class="grid" id="pf">
+  let h=admin?`<details class="card"><summary><b>Add a participant</b></summary><form class="grid" id="pf">
    <label>Name<input name="name" required></label><label>NDIS number<input name="ndis" inputmode="numeric"></label>
    <label>Plan start<input type="date" name="planStart"></label><label>Plan end<input type="date" name="planEnd"></label>
    <label>Plan type<select name="mgmt"><option>Self-managed</option><option>Plan-managed</option><option>NDIA-managed</option></select></label>
    <label>Billing lines (comma separated)<input name="billing" placeholder="04_104_0136_6_1, 09_009_0117_6_3"></label>
    <button class="btn pri" style="align-self:end">Add</button></form></details>`:"";
-  h+=`<p class="note">Sessions shown are for the week starting ${lab} (change week on the roster tab).</p>`;
+  h+=`<p class="note">Sessions shown are for the week starting ${lab}.</p>`;
   if(!S.participants.length)return h+`<p class="empty">No participants yet.</p>`;
-  return h+S.participants.map(p=>{
-    const ss=all.filter(s=>s.participant===p.id);
-    return `<div class="card"><div style="display:flex;justify-content:space-between;gap:8px"><b>${esc(p.name)}</b>${admin?`<button class="btn sm del adm" data-dp="${p.id}">Remove</button>`:""}</div>
-    <div class="mut">NDIS ${esc(p.ndis||"—")} · ${esc(p.mgmt||"")}</div>
-    <div class="mut">Plan: ${esc(p.planStart||"?")} to ${esc(p.planEnd||"?")}</div>
+  return h+S.participants.map(p=>{const ss=all.filter(s=>s.participant===p.id);
+    return `<div class="card"><div style="display:flex;justify-content:space-between;gap:8px"><b>${esc(p.name)}</b>${admin?`<button class="btn sm del" data-dp="${p.id}">Remove</button>`:""}</div>
+    <div class="mut">NDIS ${esc(p.ndis||"—")} · ${esc(p.mgmt||"")}</div><div class="mut">Plan: ${esc(p.planStart||"?")} to ${esc(p.planEnd||"?")}</div>
     <div>${lines(p).map(l=>`<span class="tag">${esc(l)}</span>`).join("")||`<span class="mut">No billing lines</span>`}</div>
-    <div style="margin-top:6px"><b>This week:</b> ${ss.length?ss.map(s=>`${fmt(new Date(s.date+"T00:00"),{weekday:"short"})} ${t12(s.start)} (${s.session?"Session "+esc(s.session):"no session #"})`).join("; "):`<span class="mut">no sessions</span>`}</div></div>`}).join("");
-}
+    <div style="margin-top:6px"><b>This week:</b> ${ss.length?ss.map(s=>`${fmt(new Date(s.date+"T00:00"),{weekday:"short"})} ${t12(s.start)} (${s.session?"Session "+esc(s.session):"no session #"})`).join("; "):`<span class="mut">no sessions</span>`}</div></div>`}).join("")}
 function bindParticipants(){
-  document.querySelectorAll("[data-dp]").forEach(b=>b.onclick=()=>{if(confirm("Remove this participant? Their past shifts will show as (removed)."))db.doc("participants/"+b.dataset.dp).delete()});
-  const f=$("#pf");if(f)f.onsubmit=e=>{e.preventDefault();db.collection("participants").add(Object.fromEntries(new FormData(f))).then(()=>f.reset())};
-}
+  document.querySelectorAll("[data-dp]").forEach(b=>b.onclick=()=>ask("Remove this participant? Their past shifts will show as (removed).",()=>mutate(()=>{S.participants=S.participants.filter(p=>p.id!==b.dataset.dp)})));
+  const f=$("#pf");if(f)f.onsubmit=e=>{e.preventDefault();const v=Object.fromEntries(new FormData(f));mutate(()=>{S.participants.push({id:uid(),...v})})}}
 
 function staffView(){
-  return (admin?`<div class="card adm"><form class="grid" id="ef"><label>Employee name<input name="name" required></label><label>Role<input name="role" placeholder="Support worker"></label><button class="btn pri" style="align-self:end">Add employee</button></form><p class="note">Only you (the owner) can add or remove staff.</p></div>`:"")+
-  (S.staff.length?S.staff.map(s=>`<div class="card" style="display:flex;justify-content:space-between;align-items:center"><div><b>${esc(s.name)}</b><div class="mut">${esc(s.role||"")}</div></div>${admin?`<button class="btn sm del adm" data-ds="${s.id}">Remove</button>`:""}</div>`).join(""):`<p class="empty">No staff yet.</p>`);
-}
+  return (admin?`<div class="card"><form class="grid" id="ef"><label>Employee name<input name="name" required></label><label>Role<input name="role" placeholder="Support worker"></label><button class="btn pri" style="align-self:end">Add employee</button></form></div>`:"")+
+  (S.staff.length?S.staff.map(s=>`<div class="card" style="display:flex;justify-content:space-between;align-items:center"><div><b>${esc(s.name)}</b><div class="mut">${esc(s.role||"")}</div></div>${admin?`<button class="btn sm del" data-ds="${s.id}">Remove</button>`:""}</div>`).join(""):`<p class="empty">No staff yet.</p>`)}
 function bindStaff(){
-  document.querySelectorAll("[data-ds]").forEach(b=>b.onclick=()=>{if(confirm("Remove this employee? Past shifts will show as (removed)."))db.doc("staff/"+b.dataset.ds).delete()});
-  const f=$("#ef");if(f)f.onsubmit=e=>{e.preventDefault();db.collection("staff").add(Object.fromEntries(new FormData(f))).then(()=>f.reset())};
-}
+  document.querySelectorAll("[data-ds]").forEach(b=>b.onclick=()=>ask("Remove this employee? Past shifts will show as (removed).",()=>mutate(()=>{S.staff=S.staff.filter(s=>s.id!==b.dataset.ds)})));
+  const f=$("#ef");if(f)f.onsubmit=e=>{e.preventDefault();const v=Object.fromEntries(new FormData(f));mutate(()=>{S.staff.push({id:uid(),...v})})}}
 
 function render(){
-  renderTabs();renderNotes();
-  const v=$("#view");
-  if(!db){v.innerHTML=`<p class="empty">Sign in to view the roster.</p>`;return}
+  S.staff.sort((a,b)=>a.name.localeCompare(b.name));S.participants.sort((a,b)=>a.name.localeCompare(b.name));
+  renderTabs();renderNotes();const v=$("#view");
   if(tab==="roster"){v.innerHTML=rosterView();bindRoster()}
   else if(tab==="participants"){v.innerHTML=participantsView();bindParticipants()}
-  else{v.innerHTML=staffView();bindStaff()}
-}
+  else{v.innerHTML=staffView();bindStaff()}}
 
-(async()=>{
-  render();
-  try{const u=await claude.use("user");admin=u?await u.canEdit():false}catch(e){}
-  db=await claude.use("db");
-  if(!db){render();return}
-  const sub=(name,key)=>db.collection(name).onSnapshot(snap=>{S[key]=snap.docs.map(d=>({id:d.id,...d.data()}));
-    S.staff.sort((a,b)=>a.name.localeCompare(b.name));S.participants.sort((a,b)=>a.name.localeCompare(b.name));
-    const ae=document.activeElement;if(ae&&/INPUT|SELECT/.test(ae.tagName)&&$("#view").contains(ae))return;render()},()=>render());
-  sub("staff","staff");sub("participants","participants");sub("shifts","shifts");
-  db.doc("settings/main").onSnapshot(d=>{S.formUrl=(d.data()||{}).formUrl||"";renderNotes()});
-  $("#formBtn").onclick=()=>{const u=prompt("Paste your Google Form link:",S.formUrl);if(u!==null&&/^https:\/\//.test(u.trim()))db.doc("settings/main").set({formUrl:u.trim()});else if(u)alert("The link must start with https://")};
-  setTimeout(()=>{if(!S.staff.length&&!S.participants.length)render()},10000);
-})();
+/* sign-in */
+function showLogin(msg){$("#app").hidden=true;$("#login").hidden=false;$("#le").textContent=msg||"";sessionStorage.removeItem("rp")}
+async function start(){
+  try{await load();$("#login").hidden=true;$("#app").hidden=false;
+    // viewers refresh every 30s; admin stays on what they are editing
+    setInterval(()=>{if(!admin&&!document.hidden)load().catch(()=>{})},30000)}
+  catch(e){showLogin(e.status===401?"Wrong password.":"Could not load the roster: "+e.message)}}
+$("#lf").onsubmit=e=>{e.preventDefault();pass=$("#pw").value;sessionStorage.setItem("rp",pass);start()};
+$("#out").onclick=()=>{pass="";sessionStorage.removeItem("rp");location.reload()};
+$("#formBtn").onclick=formLink;
+pass=sessionStorage.getItem("rp")||"";if(pass)start();else showLogin();
 </script></body></html>
