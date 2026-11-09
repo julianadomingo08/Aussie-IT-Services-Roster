@@ -21,8 +21,10 @@ main{max-width:1100px;margin:0 auto;padding:14px}
 .wkh{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--mut);margin-bottom:3px}
 .row{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border:1px solid var(--bd);border-radius:8px;overflow:hidden;background:var(--card)}
 .c{border-left:1px solid var(--bd);min-height:70px}.c:first-child{border-left:0}
-.c .dn{background:var(--hd);color:var(--tx);text-align:center;font-size:12px;font-weight:600;padding:2px}
-.c .dn small{color:var(--mut);font-weight:400;display:block;font-size:10px}
+.c .dn{background:#3b73c9;color:#fff;text-align:center;font-size:12px;font-weight:600;padding:2px}
+.c.we .dn{background:var(--hd);color:var(--tx)}
+.c .dn small{color:rgba(255,255,255,.85);font-weight:400;display:block;font-size:10px}
+.c.we .dn small{color:var(--mut)}
 .c.out .dn{opacity:.45}
 .c .hr{text-align:center;font-size:11px;color:var(--mut);padding:2px;border-bottom:1px solid var(--bd)}
 .c .nm{padding:4px;display:flex;flex-direction:column;gap:3px}
@@ -94,7 +96,7 @@ function render(){
     h+=`<div class="scroll"><div class="wk"><div class="wkh"><span>Week of ${ws.toLocaleDateString("en-AU",{day:"numeric",month:"short"})}</span>${admin?`<button class="btn sm" data-copy="${iso(ws)}">Copy from previous week</button>`:""}</div><div class="row">`;
     for(let i=0;i<7;i++){const d=add(ws,i),k=iso(d),day=S.days[k]||{};
       const ids=(day.staff||[]).filter(id=>nm(id));
-      h+=`<div class="c ${admin?"ed":""}" ${admin?`data-day="${k}"`:""}><div class="dn">${d.toLocaleDateString("en-AU",{weekday:"short"})}<small>${d.toLocaleDateString("en-AU",{day:"2-digit",month:"short"})}</small></div><div class="hr">${esc(day.hours??S.hours)}</div><div class="nm">${ids.map(chip).join("")}</div></div>`}
+      h+=`<div class="c ${d.getDay()%6===0?"we ":""}${admin?"ed":""}" ${admin?`data-day="${k}"`:""}><div class="dn">${d.toLocaleDateString("en-AU",{weekday:"short"})}<small>${d.toLocaleDateString("en-AU",{day:"2-digit",month:"short"})}</small></div><div class="hr">${esc(day.hours??S.hours)}</div><div class="nm">${ids.map(chip).join("")}</div></div>`}
     h+=`</div></div></div>`}
   const nt=S.notes[key]||"";
   h+=`<div class="card"><b>NOTES</b>${admin?`<textarea id="nt" placeholder="Notes for these 4 weeks" style="min-height:60px;margin-top:6px">${esc(nt)}</textarea><div style="margin-top:6px"><button class="btn sm pri" id="ns">Save notes</button></div>`:`<p style="white-space:pre-wrap;margin:6px 0 0">${esc(nt)||`<span class="empty">No notes</span>`}</p>`}</div></div>`;
