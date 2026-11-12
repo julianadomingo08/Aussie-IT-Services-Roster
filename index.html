@@ -66,7 +66,7 @@ const hue=id=>{let h=0;for(const c of String(id))h=(h*31+c.charCodeAt(0))%360;re
 const nm=id=>(S.staff.find(s=>s.id===id)||{}).name;
 const PAL=[["#ffd6d6","#d64545"],["#ffe3c2","#e08a1e"],["#fff3b0","#c9a400"],["#d4f1c5","#4c9a2a"],["#c5efe6","#1f9d8a"],["#cfe6ff","#2b7bd6"],["#dcd3ff","#6a4fd1"],["#f7d1f0","#c13fae"],["#e6e6e6","#6b6b6b"],["#ffd0e1","#d6457f"]];
 const cidx=id=>{const s=S.staff.find(x=>x.id===id)||{};return Number.isInteger(s.c)?s.c%PAL.length:hue(id)%PAL.length};
-const chip=id=>{const [bg,bd]=PAL[cidx(id)];return `<span class="chip" style="background:${bg};border-color:${bd}">${esc(nm(id))}</span>`};
+const chip=(id,hrs)=>{const [bg,bd]=PAL[cidx(id)];return `<span class="chip" style="background:${bg};border-color:${bd}">${esc(nm(id))}${hrs?`<br><small style="font-size:10px">${esc(hrs)}</small>`:""}</span>`};
 const firstDay=()=>add(mon(new Date()),mo*28);
 
 function dlg(html){const d=$("#dlg");d.innerHTML=`<div class="dbox">${html}</div>`;d.hidden=false;return d}
@@ -95,7 +95,7 @@ function render(){
     h+=`<div class="scroll"><div class="wk"><div class="wkh"><span>Week of ${ws.toLocaleDateString("en-AU",{day:"numeric",month:"short"})}</span>${admin?`<button class="btn sm" data-copy="${iso(ws)}">Copy from previous week</button>`:""}</div><div class="row">`;
     for(let i=0;i<7;i++){const d=add(ws,i),k=iso(d),day=S.days[k]||{};
       const ids=(day.staff||[]).filter(id=>nm(id));
-      h+=`<div class="c ${d.getDay()%6===0?"we ":""}${admin?"ed":""}" ${admin?`data-day="${k}"`:""}><div class="dn">${d.toLocaleDateString("en-AU",{weekday:"short"})}<small>${d.toLocaleDateString("en-AU",{day:"2-digit",month:"short"})}</small></div><div class="hr">${esc(day.hours??S.hours)}</div><div class="nm">${ids.map(chip).join("")}</div></div>`}
+      h+=`<div class="c ${d.getDay()%6===0?"we ":""}${admin?"ed":""}" ${admin?`data-day="${k}"`:""}><div class="dn">${d.toLocaleDateString("en-AU",{weekday:"short"})}<small>${d.toLocaleDateString("en-AU",{day:"2-digit",month:"short"})}</small></div><div class="hr">${esc(day.hours??S.hours)}</div><div class="nm">${ids.map(id=>chip(id,(day.sh||{})[id])).join("")}</div></div>`}
     h+=`</div></div></div>`}
   const nt=S.notes[key]||"";
   h+=`<div class="card"><b>NOTES</b>${admin?`<textarea id="nt" placeholder="Notes for these 4 weeks" style="min-height:60px;margin-top:6px">${esc(nt)}</textarea><div style="margin-top:6px"><button class="btn sm pri" id="ns">Save notes</button></div>`:`<p style="white-space:pre-wrap;margin:6px 0 0">${esc(nt)||`<span class="empty">No notes</span>`}</p>`}</div></div>`;
@@ -108,11 +108,12 @@ function editDay(k){
   const day=S.days[k]||{},sel=new Set(day.staff||[]);
   if(!S.staff.length){note("Add your staff first with the Staff button.");return}
   const d=new Date(k+"T00:00");
-  dlg(`<b>${d.toLocaleDateString("en-AU",{weekday:"long",day:"numeric",month:"long"})}</b><label style="margin-top:8px">Hours<input type="text" id="eh" value="${esc(day.hours??S.hours)}" placeholder="${DEF}"></label><p class="note">Type "CLOSED" for a day with no program.</p>${S.staff.map(s=>`<label class="chk"><input type="checkbox" value="${s.id}" ${sel.has(s.id)?"checked":""}> ${chip(s.id)}</label>`).join("")}<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:10px"><button class="btn" id="dn">Cancel</button><button class="btn pri" id="dy">Save</button></div>`);
-  $("#dn").onclick=close;$("#dy").onclick=()=>{const ids=[...document.querySelectorAll(".dbox input[type=checkbox]:checked")].map(x=>x.value);const hr=$("#eh").value.trim()||S.hours;close();mutate(()=>{S.days[k]={hours:hr,staff:ids}})}}
+  dlg(`<b>${d.toLocaleDateString("en-AU",{weekday:"long",day:"numeric",month:"long"})}</b><label style="margin-top:8px">Hours<input type="text" id="eh" value="${esc(day.hours??S.hours)}" placeholder="${DEF}"></label><p class="note">Day hours apply to everyone. Type a person's own hours (e.g. 10-2) only if theirs are different. Type CLOSED for a day with no program.</p>${S.staff.map(s=>`<label class="chk"><input type="checkbox" value="${s.id}" ${sel.has(s.id)?"checked":""}> ${chip(s.id)}<input type="text" data-h="${s.id}" value="${esc((day.sh||{})[s.id]||"")}" placeholder="own hours" style="width:120px;margin:0 0 0 auto"></label>`).join("")}<div style="display:flex;gap:8px;justify-content:flex-end;margin-top:10px"><button class="btn" id="dn">Cancel</button><button class="btn pri" id="dy">Save</button></div>`);
+  document.querySelectorAll("[data-h]").forEach(i=>i.oninput=()=>{if(i.value.trim())i.parentNode.querySelector("input[type=checkbox]").checked=true});
+  $("#dn").onclick=close;$("#dy").onclick=()=>{const ids=[...document.querySelectorAll(".dbox input[type=checkbox]:checked")].map(x=>x.value);const hr=$("#eh").value.trim()||S.hours;const sh={};ids.forEach(id=>{const v=document.querySelector('[data-h="'+id+'"]').value.trim();if(v)sh[id]=v});close();mutate(()=>{S.days[k]={hours:hr,staff:ids,sh}})}}
 function copyWeek(ws){
   const prev=add(new Date(ws+"T00:00"),-7);
-  ask("Copy last week's staff and hours into this week? It replaces anything already entered this week.",()=>mutate(()=>{for(let i=0;i<7;i++){const src=S.days[iso(add(prev,i))];const k=iso(add(new Date(ws+"T00:00"),i));if(src)S.days[k]={hours:src.hours,staff:[...(src.staff||[])]};else delete S.days[k]}}))}
+  ask("Copy last week's staff and hours into this week? It replaces anything already entered this week.",()=>mutate(()=>{for(let i=0;i<7;i++){const src=S.days[iso(add(prev,i))];const k=iso(add(new Date(ws+"T00:00"),i));if(src)S.days[k]={hours:src.hours,staff:[...(src.staff||[])],sh:{...(src.sh||{})}};else delete S.days[k]}}))}
 function staffDlg(){
   dlg(`<b>Staff</b><p class="note">Tap a colour square to change that person's colour.</p><div style="margin:8px 0">${S.staff.map(s=>{const [bg,bd]=PAL[cidx(s.id)];return `<div style="display:flex;justify-content:space-between;align-items:center;padding:3px 0;gap:8px"><button class="sw" data-c="${s.id}" style="background:${bg};border-color:${bd}" title="Change colour"></button><span style="flex:1">${esc(s.name)}</span><button class="btn sm del" data-r="${s.id}">Remove</button></div>`}).join("")||`<span class="empty">No staff yet</span>`}</div><form id="af" style="display:flex;gap:6px"><input type="text" id="an" placeholder="Full name" required style="margin:0"><button class="btn pri">Add</button></form><div style="text-align:right;margin-top:10px"><button class="btn" id="dn">Close</button></div>`);
   $("#dn").onclick=close;
